@@ -1,4 +1,4 @@
-# dice
+# Flutter Project Tutorial
 
 A new Flutter project.
 
