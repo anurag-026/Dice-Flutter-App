@@ -23,10 +23,11 @@ class DiceStructure extends StatefulWidget {
 
 class _DiceStructureState extends State<DiceStructure> {
   var randNum ;
+  
   @override
   void setState(VoidCallback fn) {
     randNum = randomNumber();
-    //super.setState(fn);
+    super.setState(fn);
   }
 
   @override
