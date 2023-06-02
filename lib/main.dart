@@ -39,11 +39,16 @@ class _DiceStructureState extends State<DiceStructure> {
             child: Row(
           children: [
             Image(image: AssetImage('/dice-images/dice-$randNum.png')),
+            const ElevatedButton(
+              onPressed: null,
+              child: Text(
+                "Press",
+                style: TextStyle(fontSize: 25),
+              ),
+            )
           ],
         )),
       ),
     );
   }
 }
-
-
