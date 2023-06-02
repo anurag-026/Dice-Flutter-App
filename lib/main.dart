@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'dart:math';
 
 void main() {
   runApp(Diceapp());
@@ -9,28 +10,40 @@ class Diceapp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
+    return DiceStructure();
+  }
+}
+
+class DiceStructure extends StatefulWidget {
+  const DiceStructure({super.key});
+
+  @override
+  State<DiceStructure> createState() => _DiceStructureState();
+}
+
+class _DiceStructureState extends State<DiceStructure> {
+  var randNum = 1;
+  @override
+  void setState(VoidCallback fn) {
+    // TODO: implement setState
+    var randNum = Random();
+    randNum.nextInt(6) + 1;
+    super.setState(fn);
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
       home: Scaffold(
-        body: Activity1(),
+        body: Center(
+            child: Row(
+          children: [
+            Image(image: AssetImage('/dice-images/dice-$randNum.png')),
+          ],
+        )),
       ),
     );
   }
 }
 
-class Activity1 extends StatefulWidget {
-  const Activity1({super.key});
 
-  @override
-  State<Activity1> createState() => _Activity1State();
-}
-
-class _Activity1State extends State<Activity1> {
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      child: Row(children: [
-        
-      ]),
-    ) ;
-  }
-}
