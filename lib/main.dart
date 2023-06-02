@@ -27,6 +27,10 @@ class Activity1 extends StatefulWidget {
 class _Activity1State extends State<Activity1> {
   @override
   Widget build(BuildContext context) {
-    return const Placeholder();
+    return Container(
+      child: Row(children: [
+        
+      ]),
+    ) ;
   }
 }
