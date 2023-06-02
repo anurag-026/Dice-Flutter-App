@@ -22,13 +22,11 @@ class DiceStructure extends StatefulWidget {
 }
 
 class _DiceStructureState extends State<DiceStructure> {
-  var randNum = 1;
+  var randNum ;
   @override
   void setState(VoidCallback fn) {
-    // TODO: implement setState
-    var randNum = Random();
-    randNum.nextInt(6) + 1;
-    super.setState(fn);
+    randNum = randomNumber();
+    //super.setState(fn);
   }
 
   @override
@@ -38,9 +36,9 @@ class _DiceStructureState extends State<DiceStructure> {
         body: Center(
             child: Row(
           children: [
-            Image(image: AssetImage('/dice-images/dice-$randNum.png')),
+            Image(image: AssetImage('/dice-images/dice-$randNum')),
             const ElevatedButton(
-              onPressed: null,
+              onPressed: randomNumber,
               child: Text(
                 "Press",
                 style: TextStyle(fontSize: 25),
@@ -51,4 +49,10 @@ class _DiceStructureState extends State<DiceStructure> {
       ),
     );
   }
+}
+
+Random randomNumber() {
+  var randNum = Random();
+  randNum.nextInt(6) + 1;
+  return randNum;
 }
