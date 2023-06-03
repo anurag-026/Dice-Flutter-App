@@ -6,7 +6,7 @@ void main() {
 }
 
 class Diceapp extends StatelessWidget {
-  const Diceapp({super.key});
+  Diceapp({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -15,32 +15,32 @@ class Diceapp extends StatelessWidget {
 }
 
 class DiceStructure extends StatefulWidget {
-  const DiceStructure({super.key});
+  DiceStructure({super.key});
 
   @override
   State<DiceStructure> createState() => _DiceStructureState();
 }
 
 class _DiceStructureState extends State<DiceStructure> {
-  var randNum ;
-  
-  @override
-  void setState(VoidCallback fn) {
-    randNum = randomNumber();
-    super.setState(fn);
-  }
+  var randNum = 0;
 
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       home: Scaffold(
         body: Center(
-            child: Row(
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Image(image: AssetImage('/dice-images/dice-$randNum')),
-            const ElevatedButton(
-              onPressed: randomNumber,
-              child: Text(
+            Image(image: AssetImage('image/dice-$randNum.png')),
+            ElevatedButton(
+              onPressed: () {
+                setState(() {
+                  randNum = randomNumber(randNum);
+                });
+              },
+              child: const Text(
                 "Press",
                 style: TextStyle(fontSize: 25),
               ),
@@ -52,8 +52,7 @@ class _DiceStructureState extends State<DiceStructure> {
   }
 }
 
-Random randomNumber() {
-  var randNum = Random();
-  randNum.nextInt(6) + 1;
+int randomNumber(int randNum) {
+  randNum = Random().nextInt(6) + 1;
   return randNum;
 }
