@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'dart:math';
+import 'App2.dart';
 
 void main() {
   runApp(Diceapp());
@@ -30,15 +31,19 @@ class _DiceStructureState extends State<DiceStructure> {
       darkTheme: ThemeData.dark(),
       debugShowCheckedModeBanner: false,
       home: Scaffold(
+        appBar: AppBar(
+          title: Text('Dice App')          ,
+          actions: [
+            IconButton(onPressed: null, icon: Icon(Icons.more_vert))
+
+        ],),
         body: Container(
           decoration: const BoxDecoration(
-            gradient: LinearGradient(colors: [
-              Color.fromARGB(255, 136, 177, 219),
-              Color.fromARGB(255, 53, 88, 141),
-              Color.fromARGB(255, 45, 92, 150)
-              
-            ])
-          ),
+              gradient: LinearGradient(colors: [
+            Color.fromARGB(255, 136, 177, 219),
+            Color.fromARGB(255, 53, 88, 141),
+            Color.fromARGB(255, 45, 92, 150)
+          ])),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
@@ -69,3 +74,5 @@ int randomNumber(int randNum) {
   randNum = Random().nextInt(6) + 1;
   return randNum;
 }
+
+
