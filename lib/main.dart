@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'dart:math';
-import 'App2.dart';
+import 'package:dice/my_app_bar.dart';
 
 void main() {
   runApp(Diceapp());
@@ -31,7 +31,7 @@ class _DiceStructureState extends State<DiceStructure> {
       darkTheme: ThemeData.dark(),
       debugShowCheckedModeBanner: false,
       home: Scaffold(
-        appBar: MyAppBar(),
+        appBar: const MyAppBar(),
         body: Container(
           decoration: const BoxDecoration(
               gradient: LinearGradient(colors: [
@@ -44,7 +44,7 @@ class _DiceStructureState extends State<DiceStructure> {
             children: [
               Image(image: AssetImage('image/dice-$randNum.png')),
               Card(
-                color: const Color.fromARGB(255, 171, 174, 190),
+                color: const Color.fromARGB(255, 136, 177, 219),
                 child: ElevatedButton(
                   onPressed: () {
                     setState(() {
@@ -53,7 +53,7 @@ class _DiceStructureState extends State<DiceStructure> {
                   },
                   child: const Text(
                     "Press",
-                    style: TextStyle(fontSize: 25),
+                    style: TextStyle(fontSize: 30),
                   ),
                 ),
               )
@@ -68,34 +68,4 @@ class _DiceStructureState extends State<DiceStructure> {
 int randomNumber(int randNum) {
   randNum = Random().nextInt(6) + 1;
   return randNum;
-}
-
-class MyAppBar extends StatelessWidget implements PreferredSizeWidget {
-  const MyAppBar({super.key});
-  @override
-  Size get preferredSize => const Size.fromHeight(100);
-  @override
-  Widget build(context) {
-    return AppBar(
-      title: Text('Dice Roll'),
-      actions: [
-        PopupMenuButton(itemBuilder: (context) {
-          return [
-            const PopupMenuItem(
-              onTap: null,
-              child: Text('App 1'),
-            ),
-            const PopupMenuItem(
-              onTap: null,
-              child: Text('App 2'),
-            ),
-            const PopupMenuItem(
-              onTap: null,
-              child: Text('App 3'),
-            )
-          ];
-        })
-      ],
-    );
-  }
 }
