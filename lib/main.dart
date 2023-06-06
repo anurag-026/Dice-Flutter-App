@@ -31,12 +31,7 @@ class _DiceStructureState extends State<DiceStructure> {
       darkTheme: ThemeData.dark(),
       debugShowCheckedModeBanner: false,
       home: Scaffold(
-        appBar: AppBar(
-          title: Text('Dice App')          ,
-          actions: [
-            IconButton(onPressed: null, icon: Icon(Icons.more_vert))
-
-        ],),
+        appBar: MyAppBar(),
         body: Container(
           decoration: const BoxDecoration(
               gradient: LinearGradient(colors: [
@@ -75,4 +70,32 @@ int randomNumber(int randNum) {
   return randNum;
 }
 
-
+class MyAppBar extends StatelessWidget implements PreferredSizeWidget {
+  const MyAppBar({super.key});
+  @override
+  Size get preferredSize => const Size.fromHeight(100);
+  @override
+  Widget build(context) {
+    return AppBar(
+      title: Text('Dice Roll'),
+      actions: [
+        PopupMenuButton(itemBuilder: (context) {
+          return [
+            const PopupMenuItem(
+              onTap: null,
+              child: Text('App 1'),
+            ),
+            const PopupMenuItem(
+              onTap: null,
+              child: Text('App 2'),
+            ),
+            const PopupMenuItem(
+              onTap: null,
+              child: Text('App 3'),
+            )
+          ];
+        })
+      ],
+    );
+  }
+}
