@@ -3,20 +3,20 @@ import 'dart:math';
 import 'package:dice/my_app_bar.dart';
 
 void main() {
-  runApp(Diceapp());
+  runApp(const Diceapp());
 }
 
 class Diceapp extends StatelessWidget {
-  Diceapp({super.key});
+  const Diceapp({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return DiceStructure();
+    return const DiceStructure();
   }
 }
 
 class DiceStructure extends StatefulWidget {
-  DiceStructure({super.key});
+  const DiceStructure({super.key});
 
   @override
   State<DiceStructure> createState() => _DiceStructureState();

@@ -12,7 +12,7 @@ class MyAppBar extends StatelessWidget implements PreferredSizeWidget {
       actions: [
         PopupMenuButton(
           elevation: 10,
-          color: Color.fromARGB(255, 217, 233, 241),
+          color: const Color.fromARGB(255, 217, 233, 241),
           itemBuilder: (context) {
             return [
               const PopupMenuItem(
